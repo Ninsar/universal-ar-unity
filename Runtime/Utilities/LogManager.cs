@@ -4,7 +4,7 @@ namespace Zappar
 {
     public class LogManager : SingletonMono<LogManager>
     {
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
         private Z.DebugMode DebugMode = Z.DebugMode.UnityLog;
         private Z.LogLevel LogLevel = Z.LogLevel.WARNING;
 

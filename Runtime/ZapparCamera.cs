@@ -78,7 +78,7 @@ namespace Zappar
         {
             m_unityCamera = GetComponent<Camera>();
 
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
             var log = LogManager.Instance;
 #endif
             m_cameraPose = Matrix4x4.identity;

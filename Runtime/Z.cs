@@ -24,7 +24,7 @@ public static class Config
     public const string PluginName = "__Internal";
 #endif
 
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
     public const string ImageTrainPlugin = "ImageTraining";
 #endif
 }
@@ -73,7 +73,7 @@ public class Z
         UnityLog = 2
     }
 
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void DebugLogDelegate(string str);
@@ -106,7 +106,7 @@ public class Z
 #pragma warning disable 0162
         public static string FaceTrackingModelPath()
         {
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
 
             if (Directory.Exists(ZCVResourcesPath))
                 return ZCVResourcesPath + "face_tracking_model.zbin";            
@@ -116,7 +116,7 @@ public class Z
         }
 
     public static string FaceMeshFaceModelPath() {
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
             if (Directory.Exists(ZCVResourcesPath))
                 return ZCVResourcesPath + "face_mesh_face_model.zbin";
             return Application.dataPath + "/Zappar/Contents/face_mesh_face_model.zbin";
@@ -125,7 +125,7 @@ public class Z
     }
 
     public static string FaceMeshFullHeadSimplifiedModelPath() {
-#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR
             if (Directory.Exists(ZCVResourcesPath))
                 return ZCVResourcesPath + "face_mesh_full_head_simplified_model.zbin";
             return Application.dataPath + "/Zappar/Contents/face_mesh_full_head_simplified_model.zbin";
