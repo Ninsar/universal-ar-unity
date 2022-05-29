@@ -99,6 +99,28 @@ public class Z
     [DllImport(Config.ImageTrainPlugin, CallingConvention = CallingConvention.Cdecl)]
     public static extern void TrainImageFreeFileData(ref FileData d);
     
+#else
+    public delegate void DebugLogDelegate(string str);
+
+    public static void SetDebugMode(DebugMode mode, LogLevel level);
+    
+    public static void SetLogFunc(DebugLogDelegate func) => throw new InvalidOperationException();
+    
+    public static void SetErrorFunc(DebugLogDelegate func) => throw new InvalidOperationException();
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct FileData
+    {
+        public IntPtr data;
+        public int length;
+    }
+
+    
+    public static int TrainImageCompressed(ref FileData compressed, ref FileData zpt, ref FileData preview, int preview_is_jpeg) => throw new InvalidOperationException();
+    
+    public static int TrainImageCompressedWithMax(ref FileData compressed, ref FileData zpt, ref FileData preview, int preview_is_jpeg, int max_width, int max_height) => throw new InvalidOperationException();
+    
+    public static void TrainImageFreeFileData(ref FileData d) => throw new InvalidOperationException();
 #endif
 
     private const string ZCVResourcesPath = "Packages/com.zappar.uar/Contents/";
