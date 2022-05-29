@@ -102,7 +102,7 @@ public class Z
 #else
     public delegate void DebugLogDelegate(string str);
 
-    public static void SetDebugMode(DebugMode mode, LogLevel level);
+    public static void SetDebugMode(DebugMode mode, LogLevel level) => throw new InvalidOperationException();
     
     public static void SetLogFunc(DebugLogDelegate func) => throw new InvalidOperationException();
     
